@@ -3,6 +3,7 @@ import './App.css'
 import MainSearch from './components/MainSearch'
 import CompanySearchResults from './components/CompanySearchResults'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Favorites from './components/Favorites'
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<MainSearch />} />
         <Route path="/:companyName" element={<CompanySearchResults />} />
+        <Route path="/Favorites" element={<Favorites />} />
+        <Route path="*" element={<div>404 - Page Not Found</div>} />
       </Routes>
     </BrowserRouter>
   )
