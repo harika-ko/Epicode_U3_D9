@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { Container, Row, Col, Form } from 'react-bootstrap'
-import Job from './Job'
+import JobResult from './JobResult'
+import { Link } from 'react-router-dom'
 
 class MainSearch extends Component {
   state = {
@@ -37,6 +38,9 @@ class MainSearch extends Component {
         <Row>
           <Col xs={10} className="mx-auto my-3">
             <h1>Remote Jobs Search</h1>
+            <Link to="/favorites" className="btn btn-primary">
+              Favorites
+            </Link>
           </Col>
           <Col xs={10} className="mx-auto">
             <Form onSubmit={this.handleSubmit}>
@@ -50,7 +54,7 @@ class MainSearch extends Component {
           </Col>
           <Col xs={10} className="mx-auto mb-5">
             {this.state.jobs.map((jobData) => (
-              <Job key={jobData._id} data={jobData} />
+              <JobResult key={jobData._id} data={jobData} />
             ))}
           </Col>
         </Row>

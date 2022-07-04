@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainSearch />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/:companyName" element={<CompanySearchResults />} />
-        <Route path="/Favorites" element={<Favorites />} />
         <Route path="*" element={<div>404 - Page Not Found</div>} />
       </Routes>
     </BrowserRouter>

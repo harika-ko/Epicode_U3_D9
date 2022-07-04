@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Job from './Job'
 import { useParams } from 'react-router-dom'
-import { connect } from 'react-redux'
 
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([])
