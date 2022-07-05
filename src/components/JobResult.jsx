@@ -2,26 +2,18 @@ import { Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { Star, StarFill } from 'react-bootstrap-icons'
 import { addToFav, removeFromFav } from '../redux/actions'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
-const mapStateToProps = (state) => state
+const JobResult = ({ data }) => {
 
-const mapDispatchToProps = (dispatch) => ({
-    addToFavorites: (company) => dispatch(addToFav(company)),
-    removeFromFavorites: (company) => dispatch(removeFromFav(company)),
-})
+    const favorites = useSelector((state) => state.favorites)
+    const dispatch = useDispatch()
 
-const JobResult = ({
-    data,
-    favorites,
-    addToFavorites,
-    removeFromFavorites,
-}) => {
     const isFav = favorites.elements.includes(data.company_name)
     const toggleFavorite = () => {
         isFav
-            ? removeFromFavorites(data.company_name)
-            : addToFavorites(data.company_name)
+            ? dispatch(removeFromFav(data.company_name))
+            : dispatch(addToFav(data.company_name))
     }
 
     return (
@@ -56,4 +48,4 @@ const JobResult = ({
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobResult)
+export default JobResult
