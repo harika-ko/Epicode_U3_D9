@@ -1,8 +1,8 @@
 const initialState = {
-    favorites: [],
+    elements: [],
 }
 
-const mainReducer = (state = initialState, action) => {
+const favoritesReducer = (state = initialState, action) => {
 
     const { type, payload } = action
 
@@ -10,15 +10,16 @@ const mainReducer = (state = initialState, action) => {
         case 'ADD_TO_FAV':
             return {
                 ...state,
-                favorites: [...state.favorites, payload]
+                elements: [...state.elements, payload]
             }
         case 'REMOVE_FROM_FAV':
             return {
                 ...state,
-                favorites: state.favorites.filter((company) => company !== payload),
+                elements: state.elements.filter((company) => company !== payload),
             }
+
         default: return state
     }
 }
 
-export default mainReducer
+export default favoritesReducer

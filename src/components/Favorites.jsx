@@ -18,7 +18,7 @@ class Favorites extends Component {
                     <h1 className="heading">Here is your Favourites list</h1>
                     <Col xs={12}>
                         <ListGroup>
-                            {this.props.favorites.map((f, i) => (
+                            {this.props.favorites.elements.map((f, i) => (
                                 <ListGroupItem key={i}>
                                     <StarFill onClick={() => this.props.removeFromFav(f)} style={{ marginRight: "20px" }} />
                                     <span>{f}</span>

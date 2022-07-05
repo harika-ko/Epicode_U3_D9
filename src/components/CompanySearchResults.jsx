@@ -15,9 +15,17 @@ const CompanySearchResults = () => {
   const baseEndpoint = 'https://strive-jobs-api.herokuapp.com/jobs?company='
 
   const getJobs = async () => {
-    const response = await fetch(baseEndpoint + params.companyName)
-    const { data } = await response.json()
-    setJobs(data)
+    try {
+      const response = await fetch(baseEndpoint + params.companyName)
+      if (response.ok) {
+        const { data } = await response.json()
+        setJobs(data)
+      } else {
+        console.log('error fetching jobs')
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (

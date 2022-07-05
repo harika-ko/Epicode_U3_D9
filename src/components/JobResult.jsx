@@ -17,7 +17,7 @@ const JobResult = ({
     addToFavorites,
     removeFromFavorites,
 }) => {
-    const isFav = favorites.includes(data.company_name)
+    const isFav = favorites.elements.includes(data.company_name)
     const toggleFavorite = () => {
         isFav
             ? removeFromFavorites(data.company_name)
